@@ -38,7 +38,10 @@ jobs:
           sudo ln -s /opt/gradle-8.0/bin/gradle /usr/bin/gradle
           gradle --version
 
-      - name: Create local.properties
+      - name: Delete old local.properties
+        run: rm -f local.properties || true
+
+      - name: Create local.properties for CI
         run: echo "sdk.dir=/usr/local/lib/android/sdk" > local.properties
 
       - name: Build Debug APK
