@@ -28,7 +28,11 @@ jobs:
 
       - name: Accept Android SDK licenses
         run: yes | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager --licenses || true
+      - name: Grant execute permissions for gradlew
+        run: chmod +x gradlew
 
+      - name: Build Android APK
+        run: ./gradlew assembleDebug --stacktrace --no-daemon
       - name: Install Gradle 8.0
         run: |
           sudo apt-get update
