@@ -1,1 +1,4 @@
+reviews:
+  profile: "assertive"
+  request_review_trigger: "@coderabbitai review"
 
